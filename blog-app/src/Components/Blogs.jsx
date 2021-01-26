@@ -8,6 +8,8 @@ import Button from "react-bootstrap/Button";
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import './Blogs.css';
+
+import config from "../config.json";
 function Blogs(){
 
     const [blogs, setBlogs] = useState([]);
@@ -15,10 +17,8 @@ function Blogs(){
     useEffect(() => {
         const dataFetch = async() => {
             try{
-                const headers = {
-                    "Access-Control-Allow-Origin": "*"
-                }
-                const res = await axios.get("https://mostlypandatuts.herokuapp.com/api/blogs", headers);
+                
+                const res = await axios.get(`${config.BASE}blogs`);
                 console.log(res.data);
                 if(res.data){
                     setBlogs(res.data);
