@@ -12,7 +12,7 @@ class Header extends Component{
     render(){
         return(
     <Navbar bg="dark" variant="dark" collapseOnSelect="true" expand="lg" sticky="top">  
-    <Navbar.Brand href="#home">BE-A-BLOGGER</Navbar.Brand>
+    <Navbar.Brand href="#home">BLOG APP</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">

@@ -37,8 +37,7 @@ function Blogs(){
     dayjs.extend(relativeTime);
     return (
         <> 
-            <Container >
-            <Row><h1 className="header">Recent Blogs!!</h1></Row>   
+             
             <Row lg={2}>   
             {blogs ? (
                 <>  <br></br>
@@ -68,7 +67,7 @@ function Blogs(){
             }
             
             </Row>
-        </Container>    
+          
         </>
     )
 }

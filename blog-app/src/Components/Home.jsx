@@ -12,7 +12,12 @@ function Home(){
         <>
             <Container fluid="true">
                 <Row>
-                    <Col xs={12} md={8} sm={12}><br></br><Blogs/></Col>
+                    <Col xs={12} md={8} sm={12}>
+                    <Container >
+                        <br/><br/><Row><h1 className="recent-header">Recent Blogs!!</h1></Row>  
+                        <br></br><Blogs/>
+                    </Container>    
+                    </Col>
                     <Col xs={12} md={4} sm={12}>
                         <Container fluid="true">
                             <Row>

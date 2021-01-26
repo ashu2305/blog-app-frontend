@@ -12,6 +12,9 @@
 .btn{
     border-radius: 30px;;
 }
+.recent-header{
+    margin: auto;
+}
 .form{
     border:2px solid;
     border-color: darkcyan;
