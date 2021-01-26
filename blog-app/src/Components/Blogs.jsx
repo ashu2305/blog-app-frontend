@@ -21,7 +21,8 @@ function Blogs(){
                 const res = await axios.get(`${config.BASE}blogs`);
                 console.log(res.data);
                 if(res.data){
-                    setBlogs(res.data);
+                    setBlogs(res.data.slice(0, 6
+                    ));
                 }
             }
             catch(error){
@@ -30,8 +31,6 @@ function Blogs(){
             
         }
         dataFetch();
-
-
     }, [])
     
     dayjs.extend(relativeTime);

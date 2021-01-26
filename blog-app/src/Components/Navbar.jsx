@@ -7,6 +7,8 @@ import Button from "react-bootstrap/Button";
 import FormControl from "react-bootstrap/FormControl";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import {Link} from "react-router-dom";
+
 
 class Header extends Component{
     render(){
@@ -16,7 +18,7 @@ class Header extends Component{
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
     <Nav className="mr-auto">
-      <Nav.Link href="#Allblog">All Blogs</Nav.Link>
+      <Nav.Link ><Link to="/allblogs"> All Blogs </Link></Nav.Link>
       <Nav.Link href="#Create">New Blog</Nav.Link>
     </Nav>
     <Form inline style={{marginRight:"10px"}}>

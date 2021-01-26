@@ -23,7 +23,15 @@ function CreateBlog(){
     const postBlog =async() => {
         try{
             const res= await axios.post( `${config.BASE}create` , blogPost  );
-            console.log(res.data);
+            if(res.data){
+                setBlog({
+                    title: '',
+                    author: '',
+                    desc: ''
+                })
+                window.alert("blog Created");
+                window.location.reload(false);
+            }
         }catch(err){
             console.log(err);
         }
@@ -37,7 +45,6 @@ function CreateBlog(){
         }
     }
 
-    console.log(blogPost);
 
      return(
         <>
