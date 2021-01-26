@@ -1,13 +1,13 @@
 import React, {useEffect, useState} from "react";
-
 import axios from "axios";
-
 import Card from "react-bootstrap/Card";
-
-import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-
+import Container from "react-bootstrap/Container";
+import Button from "react-bootstrap/Button";
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import './Blogs.css';
 function Blogs(){
 
     const [blogs, setBlogs] = useState([]);
@@ -33,25 +33,31 @@ function Blogs(){
 
 
     }, [])
-
+    
+    dayjs.extend(relativeTime);
     return (
         <> 
-            <Container>
-            <Row  >
-            
+            <Container >
+            <Row><h1 className="header">Recent Blogs!!</h1></Row>   
+            <Row lg={2}>   
             {blogs ? (
-                <>
+                <>  <br></br>
                     {blogs.map((blog) => (
-
-                        <Card className="blog-card" style={{ width: '18rem' }}>
-                            <Card.Body>
+                        <Col>
+                        <Card className="blog-card" border="info" >
+                            <Card.Header>Featured</Card.Header>
+                            <Card.Body className="blog-body">
                                 <Card.Title>{blog.title}</Card.Title>
-                                <Card.Subtitle className="mb-2 text-muted">{blog.author}</Card.Subtitle>
-                                <Card.Text>
-                                {blog.desc}
+                                <Card.Text >
+                                    <b>----- By {blog.author}</b><br></br>
+                                    {blog.desc.substring(0,120)+"..."}
                                 </Card.Text>
+                                <Button variant="primary">Explore more</Button>
                             </Card.Body>
+                            <Card.Footer className="text-muted">Last updated {dayjs(`${blog.updatedAt}`).fromNow()}</Card.Footer>
                         </Card>
+                        
+                        </Col>
                     ))
 
                     }
@@ -59,13 +65,11 @@ function Blogs(){
             ) : (
                 <></>
             )
-
             }
             
             </Row>
-            </Container>
+        </Container>    
         </>
     )
-
 }
 export default Blogs;
