@@ -15,7 +15,7 @@ function Home(){
                     <Col xs={12} md={8} sm={12}>
                     <Container >
                         <br/><br/><Row><h1 className="recent-header">Recent Blogs!!</h1></Row>  
-                        <br></br><Blogs/>
+                        <br></br><Blogs count={6} />
                     </Container>    
                     </Col>
                     <Col xs={12} md={4} sm={12}>

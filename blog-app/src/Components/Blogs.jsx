@@ -10,8 +10,8 @@ import relativeTime from 'dayjs/plugin/relativeTime';
 import './Blogs.css';
 
 import config from "../config.json";
-function Blogs(){
-
+function Blogs(props){
+    
     const [blogs, setBlogs] = useState([]);
     
     useEffect(() => {
@@ -21,8 +21,7 @@ function Blogs(){
                 const res = await axios.get(`${config.BASE}blogs`);
                 console.log(res.data);
                 if(res.data){
-                    setBlogs(res.data.slice(0, 6
-                    ));
+                    setBlogs(res.data.slice(0, props.count));
                 }
             }
             catch(error){
@@ -32,7 +31,7 @@ function Blogs(){
         }
         dataFetch();
     }, [])
-    
+    console.log(props);
     dayjs.extend(relativeTime);
     return (
         <> 
@@ -40,8 +39,8 @@ function Blogs(){
             <Row lg={2}>   
             {blogs ? (
                 <>  <br></br>
-                    {blogs.map((blog) => (
-                        <Col>
+                    {blogs.map((blog, id) => (
+                        <Col key={id}>
                         <Card className="blog-card" border="info" >
                             <Card.Header>Featured</Card.Header>
                             <Card.Body className="blog-body">

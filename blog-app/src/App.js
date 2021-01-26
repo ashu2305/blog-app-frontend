@@ -6,7 +6,7 @@ import './App.css';
 import Navbar from "./Components/Navbar";
 import Home from "./Components/Home";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import AllBlog from "./Components/AllBlogs";
 
 
 function App() {
@@ -18,8 +18,8 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Switch>
+          <Route path="/allblogs" component={AllBlog} />
           <Route path="/" component={Home} />
-          <Route path="/allblogs" component={Home} />
         </Switch>
       
       </BrowserRouter>
