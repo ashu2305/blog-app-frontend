@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import {Link } from "react-router-dom";
 import axios from "axios";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
@@ -49,7 +50,7 @@ function Blogs(props){
                                     <b>----- By {blog.author}</b><br></br>
                                     {blog.desc.substring(0,120)+"..."}
                                 </Card.Text>
-                                <Button variant="primary">Explore more</Button>
+                                <Link to={{pathname:'/fullblog/'+blog._id}}><Button variant="primary" >Explore more</Button></Link>
                             </Card.Body>
                             <Card.Footer className="text-muted">Last updated {dayjs(`${blog.updatedAt}`).fromNow()}</Card.Footer>
                         </Card>
